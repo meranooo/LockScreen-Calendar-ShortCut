@@ -44,7 +44,8 @@ To update the wallpaper automatically every morning:
 5. Disable "Ask Before Running" and "Notify When Run" so it happens in the background.
 
 ![Automation Setup](screenshots/automation.png)
-*Note: Add the shortcut in the "Do" section.*
+
+> **Note**: Add the shortcut in the "Do" section.
 
 ## Configuration
 
@@ -54,6 +55,9 @@ You can customize the settings at the beginning of the `script.js` file:
 const CONFIG = {
   // Calendar Key (only calendars starting with this character will be shown)
   calendarPrefix: "*", 
+
+  // Start of week: 0 = Sunday, 1 = Monday
+  firstDayOfWeek: 1,
 
   // Manual significant dates (format "MM-DD")
   manualSignificantDates: [], // Example: ["01-01", "12-31"]

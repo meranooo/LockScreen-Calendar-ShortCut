@@ -8,6 +8,9 @@ const CONFIG = {
   // Colors are taken directly from iOS Calendar settings!
   calendarPrefix: "*",
 
+  // Start of week: 0 = Sunday, 1 = Monday
+  firstDayOfWeek: 1,
+
   // Manual significant dates (if you don't want to use a calendar)
   // Format: "MM-DD"
   manualSignificantDates: [], // Example: ["01-01", "12-31"]
@@ -154,7 +157,9 @@ for (let m = 0; m < 12; m++) {
 
   const daysInMonth = new Date(currentYear, m + 1, 0).getDate();
   let firstDayWeek = new Date(currentYear, m, 1).getDay();
-  let startOffset = (firstDayWeek === 0) ? 6 : firstDayWeek - 1;
+  // Calculate empty slots at start of month
+  // 0 = Sunday, 1 = Monday, etc.
+  let startOffset = (firstDayWeek - CONFIG.firstDayOfWeek + 7) % 7;
 
   for (let d = 1; d <= daysInMonth; d++) {
     const dayIndex = (startOffset + d - 1);
