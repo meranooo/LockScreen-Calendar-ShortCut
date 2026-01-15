@@ -6,7 +6,10 @@ This script for the Scriptable app generates minimalistic wallpapers for iPhone 
 
 The script automatically scans your iOS calendars, filters them by a special prefix (or you can add them manually in script itself), and displays events on a yearly grid on your lock screen. Event colors are taken directly from iOS Calendar settings. It supports custom wallpapers from your Photos album, beautiful gradients, or clean solid colors.
 
-![Preview](screenshots/preview.png)
+<img src="screenshots/preview.png" width="300" />
+<img src="screenshots/preview2.png" width="300" />
+<img src="screenshots/preview3.png" width="300" />
+<img src="screenshots/preview4.png" width="300" />
 
 ## Features
 
@@ -71,14 +74,7 @@ To update daily:
 
 <img src="screenshots/automation.png" width="300" />
 
-<details>
-<summary>More screenshots</summary>
 
-<img src="screenshots/automation2.png" width="300" />
-<img src="screenshots/automation3.png" width="300" />
-<img src="screenshots/automation4.png" width="300" />
-
-</details>
 
 ## Configuration
 
