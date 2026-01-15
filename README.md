@@ -66,7 +66,7 @@ To use a random photo from an album as a background:
    showWallpaper: true
    ```
 
-![Shortcut Setup](screenshots/shortcut.png)
+<img src="screenshots/shortcut.png" width="300" />
 
 ### Automation
 To update daily:
