@@ -1,5 +1,15 @@
 # Changelog
 
+## v31 (Stability Fixes)
+
+Focused on fixing rendering issues with gradients and UI scaling.
+
+### **Fixes**
+- **Gradient Rendering:** Completely rewrote gradient generation using HTML5 Canvas + Base64 (inside WebView) to solve the "blue fallback" issue on some devices. Now 100% reliable.
+- **Stats Scaling:** Decoupled the bottom statistics text size from `contentScale`. Now the footer remains fixed and legible regardless of how you zoom the calendar.
+
+---
+
 ## v30 (Wallpapers, Gradients & Massive Rework)
 
 This is a major overhaul focusing on customization and stability.

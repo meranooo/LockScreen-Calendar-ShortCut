@@ -1,4 +1,4 @@
-// Year Progress Wallpaper v30 - Wallpapers, gradients and massive rework and update
+// Year Progress Wallpaper v31 - Wallpapers, gradients and massive rework and update
 // by agaragou
 // https://github.com/agaragou/LockScreen-Calendar-ShortCut
 const CONFIG = {
@@ -83,7 +83,7 @@ const height = screen.height;
 let startY = CONFIG.widgetsTop ? (height * CONFIG.topWidgetsPadding) : (height * CONFIG.ratios.topPadding);
 
 // Stats & Calendar Limits
-let fontSizeStats = (width * 0.028) * CONFIG.contentScale;
+let fontSizeStats = (width * 0.028); // FIXED size, ignored by contentScale
 const statsHeight = CONFIG.showStats ? (fontSizeStats * 4) : 0;
 
 let calendarLimitY = CONFIG.widgetsBottom
@@ -236,25 +236,43 @@ if (CONFIG.showWallpaper && bgImage) {
 } else {
   // Default: Check for Gradient or Solid Color
   if (CONFIG.useGradient && CONFIG.gradientColors && CONFIG.gradientColors.length > 1) {
-    const gradient = new LinearGradient();
-    gradient.colors = CONFIG.gradientColors.map(c => new Color(c));
-    gradient.locations = CONFIG.gradientColors.map((_, index) => index / (CONFIG.gradientColors.length - 1));
-    gradient.startPoint = new Point(0, 0); // Top-Left
-    gradient.endPoint = new Point(1, 1);   // Bottom-Right
-
     // Scriptable's DrawContext doesn't have drawGradient directly, 
-    // so we use a WebView to generate the gradient image (robust workaround)
-    const cssGradient = `linear-gradient(to bottom right, ${CONFIG.gradientColors.join(", ")})`;
+    // so we use a WebView with HTML5 Canvas to generate the gradient image reliably.
+    // This avoids race conditions with "captureSnapshot".
+    const gradientColorsString = CONFIG.gradientColors.map(c => `"${c}"`).join(", ");
+
     const html = `
-        <html>
-        <head><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></head>
-        <body style="margin: 0; padding: 0; width: 100vw; height: 100vh; background: ${cssGradient};"></body>
-        </html>`;
+      <html>
+      <body>
+        <canvas id="gradCanvas" width="${width}" height="${height}"></canvas>
+        <script>
+          const canvas = document.getElementById('gradCanvas');
+          const ctx = canvas.getContext('2d');
+          const grad = ctx.createLinearGradient(0, 0, ${width}, ${height}); // Diagonal
+          const colors = [${gradientColorsString}];
+          
+          colors.forEach((c, i) => {
+            grad.addColorStop(i / (colors.length - 1), c);
+          });
+          
+          ctx.fillStyle = grad;
+          ctx.fillRect(0, 0, ${width}, ${height});
+          
+          // Return Base64
+          completion(canvas.toDataURL("image/png"));
+        </script>
+      </body>
+      </html>`;
 
     try {
       const wv = new WebView();
       await wv.loadHTML(html);
-      const gradientImage = await wv.captureSnapshot();
+      const base64String = await wv.evaluateJavaScript("canvas.toDataURL()");
+
+      // Clean up the base64 string (remove data:image/png;base64,) and load
+      const imgData = Data.fromBase64String(base64String.split(",")[1]);
+      const gradientImage = Image.fromData(imgData);
+
       ctx.drawImageInRect(gradientImage, new Rect(0, 0, width, height));
     } catch (e) {
       console.log("Gradient Error: " + e.message);
